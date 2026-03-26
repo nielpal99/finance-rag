@@ -1,0 +1,24 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(pip install:*)",
+      "Bash(python3 -c \"import bs4; print\\(''bs4 ok''\\)\")",
+      "Bash(python3)",
+      "Bash(python3:*)",
+      "Bash(pip3 install:*)",
+      "Bash(modal run:*)",
+      "Bash(for TICKER in AVGO TSM ANET MU)",
+      "Bash(do echo:*)",
+      "Bash(tee -a logs/browser_scrape.log python3 ingestion/transcript_browser.py --ticker $TICKER --quarters 8)",
+      "Bash(tee -a logs/browser_scrape.log done)",
+      "Bash(head -3 echo \"---\" grep -m1 \"Q[0-9] 20[0-9][0-9] Earnings Call\\\\|Feb\\\\|May\\\\|Aug\\\\|Nov\\\\|Jan\\\\|DATE\" /Users/nielpal/Documents/finance-rag/transcripts/ANET_Q3_2025.txt)",
+      "Bash(tee -a logs/dedup_audit.log)",
+      "Bash(head -3 echo \"---\" grep -m3 \"Q[0-9] 20[0-9][0-9] Earnings Call\\\\|at 4:30\\\\|at 5:00\" /Users/nielpal/Documents/finance-rag/transcripts/AMD_Q4_2024.txt)",
+      "Bash(grep -v \"^$\")",
+      "Bash(for f:*)",
+      "Bash(tee logs/eval_medium_full_corpus.log)",
+      "Bash(tee logs/eval_braintrust_v1.log)",
+      "Bash(tee logs/eval_hard_v2.log)"
+    ]
+  }
+}

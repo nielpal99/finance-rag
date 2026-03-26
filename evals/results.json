@@ -1,0 +1,195 @@
+{
+  "summary": {
+    "run_date": "2026-03-26T08:57:31.156261+00:00",
+    "model": "claude-sonnet-4-20250514",
+    "total_questions": 7,
+    "passed": 3,
+    "failed": 4,
+    "pass_rate": 0.4286,
+    "avg_retrieval_score": 0.8452,
+    "avg_generation_score": 0.6143,
+    "retrieval_pass_threshold": 0.5,
+    "generation_pass_threshold": 0.6,
+    "by_difficulty": {
+      "medium": {
+        "total": 7,
+        "passed": 3
+      }
+    }
+  },
+  "questions": [
+    {
+      "id": 9,
+      "difficulty": "medium",
+      "question": "Which companies flagged U.S. export controls on semiconductors to China as a material risk factor, and what were the common themes?",
+      "expected_answer": "All six companies flagged export controls as a material risk. NVIDIA noted that controls could 'prohibit us from exporting our products to any or all customers' and had already negatively impacted revenue. AMD cited import/export licensing requirements and worsening U.S.-China trade relations. Broadcom flagged tariffs and trade tensions with China specifically. TSM noted controls could affect equipment procurement through denial of export licenses. Arista cited China's export controls on gallium and germanium used in semiconductor manufacturing. Micron flagged government actions restricting the movement of goods and R&D activities.",
+      "generated_answer": "Based on the available documents, **four companies flagged U.S. export controls on semiconductors to China as a material risk factor**: NVDA, TSM, AMD, and MU.\n\n## Common Themes:\n\n### 1. Direct Sales Restrictions and Revenue Impact\n- **NVDA** (10-K, 2026-01-25): Export controls \"may negatively impact demand for our products and services not only in China, but also in other markets, such as Europe, Latin America, and Southeast Asia\"\n- **AMD** (10-K, 2025-12-27): \"incurred approximately $800 million in inventory and related charges in the second quarter of 2025\" due to restrictions on AMD Instinct\u2122 MI308 products, though later \"reversed approximately $360 million of the charges\" after receiving some licenses\n- **TSM** (20-F, 2024-12-31): Controls \"could impact not only our ability to continue supplying products to those customers, but also our customers' demand for our products\"\n\n### 2. Competitive Disadvantage\n- **NVDA** (10-K, 2026-01-25): Export controls \"may disadvantage us against certain of our competitors that sell chips that are outside the scope of such control\" and \"may increase investment in foreign competitors, which would be less likely to be restricted by U.S. controls\"\n- **AMD** (10-K, 2025-12-27): \"make it easier for our China-based competitors to develop and sell their own solutions and reduce the need for our products\"\n\n### 3. Complex Compliance Burden\n- **NVDA** (10-K, 2026-01-25): \"The increasingly complex export controls impose complex and burdensome compliance obligations on our partners, suppliers, and customers\"\n- **AMD** (10-K, 2025-12-27): References the need to obtain licenses and comply with evolving BIS requirements\n\n### 4. Broader Supply Chain Impact\n- **NVDA** (10-K, 2026-01-25): Controls \"may disrupt a significant portion of our supply and distribution chain\" and affect products \"warehoused in and distributed from Hong Kong\"\n- **MU** (10-K, 2025-08-28): Notes potential impact on \"our ability to obtain equipment, components, and raw materials\"\n\n### 5. Customer \"Design-Out\" Risk\n- **NVDA** (10-K, 2026-01-25): Export controls \"may in the future encourage customers outside China and other impacted regions to 'design-out' certain U.S. semiconductors from their products to reduce the compliance burden and risk\"\n\nAll companies expressed concern about the evolving nature of these controls and their potential expansion, indicating this is viewed as an ongoing and escalating risk across the AI infrastructure sector.",
+      "retrieval_score": 0.8333,
+      "generation_score": 0.4,
+      "judge_reason": "Generated answer covers only 4 of 6 companies and misses specific details about Broadcom and Arista's material risk disclosures entirely.",
+      "pass": false,
+      "tickers_hit": [
+        "AMD",
+        "ANET",
+        "MU",
+        "NVDA",
+        "TSM"
+      ],
+      "tickers_missed": [
+        "AVGO"
+      ],
+      "retrieved_sections": [
+        "ITEM 1A. RISK FACTORS",
+        "Item 1A. Risk Factors",
+        "ITEM 3. KEY INFORMATION"
+      ],
+      "elapsed_s": 60.7
+    },
+    {
+      "id": 10,
+      "difficulty": "medium",
+      "question": "Which companies explicitly stated that AI demand growth may not be sustainable or that its long-term trajectory is unknown?",
+      "expected_answer": "AMD stated that 'the near-term and long-term trajectory of such generative AI solutions is unknown.' Broadcom stated that 'the semiconductor industry is undergoing profound change due to the adoption and proliferation of AI and has experienced a significant upturn, which may not be sustainable.' Arista noted that 'the long-term trajectory remains unknown' regarding AI-driven networking demand. NVIDIA, by contrast, described itself as having transitioned into an AI infrastructure company without similar hedging language.",
+      "generated_answer": "Based on the provided documents, several companies explicitly stated concerns about AI demand sustainability and uncertainty about its long-term trajectory:\n\n**Companies stating AI demand growth may not be sustainable:**\n\n1. **Broadcom (AVGO)** - In their 10-K filed 2025-11-02, they stated: \"The semiconductor industry is undergoing profound change due to the adoption and proliferation of AI and has experienced a significant upturn, which may not be sustainable.\"\n\n2. **Taiwan Semiconductor (TSM)** - In their 20-F filed 2024-12-31, they noted concerns about shifting business models, stating: \"These shifting business models could lead to significant variations in our sales if the growth of their products and services, particularly in the AI sector, is volatile or not sustainable.\"\n\n**Companies stating AI's long-term trajectory is unknown:**\n\n1. **Arista Networks (ANET)** - In their 10-K filed 2025-12-31, they stated: \"technologies, such as generative and agentic AI models, have emerged, and while they have driven increased demand for networking, the long-term trajectory of such technologies is unknown\" and \"the focus on deployment of AI-enabled solutions has driven increased demand for networking, the long-term trajectory remains unknown.\"\n\n2. **AMD** - In their 10-K filed 2025-12-27, they stated: \"both the near-term and long-term trajectory of such generative AI solutions is unknown\" and \"while AI adoption is likely to continue and may accelerate, the long-term trajectory of this technological trend is uncertain.\"\n\n3. **Micron Technology (MU)** - In their 10-K filed 2025-08-28, they noted: \"Recent technologies, such as generative AI models have emerged, and while they have driven increased demand for HBM and other advanced products in the data center and other markets, the long-term trajectory is unknown.\"",
+      "retrieval_score": 0.75,
+      "generation_score": 0.8,
+      "judge_reason": "Contains all key AMD, Broadcom, and Arista quotes accurately but missing the NVIDIA contrast point and includes additional companies not in expected answer.",
+      "pass": true,
+      "tickers_hit": [
+        "AMD",
+        "ANET",
+        "AVGO"
+      ],
+      "tickers_missed": [
+        "NVDA"
+      ],
+      "retrieved_sections": [
+        "ITEM 1A. RISK FACTORS",
+        "Item 1A. Risk Factors",
+        "ITEM 3. KEY INFORMATION"
+      ],
+      "elapsed_s": 32.2
+    },
+    {
+      "id": 11,
+      "difficulty": "medium",
+      "question": "Which companies disclosed individual customers representing 10% or more of revenue, and what were the disclosed percentages?",
+      "expected_answer": "NVIDIA disclosed two customers at 22% and 14% of total revenue in fiscal year 2026. TSM disclosed its largest customer at 22% of net revenue in 2024. Neither AMD, Broadcom, Arista, nor Micron named specific customers at or above the 10% threshold in the retrieved portions of their filings.",
+      "generated_answer": "Based on the provided documents, here are the companies that disclosed individual customers representing 10% or more of revenue:\n\n**NVDA (NVIDIA)**\n- Fiscal year 2026: One direct customer represented 22% of total revenue and another direct customer represented 14% of total revenue (NVDA 10-K, Period: 2026-01-25)\n- Fiscal year 2025: One direct customer represented 12% of total revenue and two direct customers each represented 11% of total revenue (NVDA 10-K, Period: 2026-01-25)\n- Fiscal year 2024: One direct customer represented 13% of total revenue (NVDA 10-K, Period: 2026-01-25)\n\n**ANET (Arista Networks)**\n- Year ended December 31, 2025: One end customer represented 16% and another end customer represented 26% of total revenue (ANET 10-K, Period: 2025-12-31)\n- Year ended December 31, 2024: One end customer represented 15% and another end customer represented 20% of total revenue (ANET 10-K, Period: 2025-12-31)\n- Year ended December 31, 2023: One end customer represented 21% and another end customer represented 18% of total revenue (ANET 10-K, Period: 2025-12-31)\n\n**TSM (Taiwan Semiconductor)**\n- Customer A: 23% (2022), 25% (2023), and 22% (2024) of net revenue (TSM 20-F, Period: 2024-12-31)\n- Customer B: 12% in 2024 (TSM 20-F, Period: 2024-12-31)\n\n**AMD**\nThe document states that \"No customer accounted for at least 10% of the Company's consolidated net revenue in fiscal years 2025 and 2024. One Client and Gaming segment customer accounted for 18% of consolidated net revenue in fiscal year 2023.\" (AMD 10-K, Period: 2025-12-27)\n\nThe documents also mention that NVIDIA generates \"a significant amount of our revenue from a limited number of indirect customers, some individually representing 10% or more of our revenue,\" but specific percentages for indirect customers were not disclosed.",
+      "retrieval_score": 0.8333,
+      "generation_score": 0.3,
+      "judge_reason": "The generated answer contradicts the expected answer by showing Arista disclosed customers above 10% and AMD had an 18% customer in 2023, while missing the key fact that in the retrieved portions, these companies did not disclose such customers.",
+      "pass": false,
+      "tickers_hit": [
+        "AMD",
+        "ANET",
+        "AVGO",
+        "NVDA",
+        "TSM"
+      ],
+      "tickers_missed": [
+        "MU"
+      ],
+      "retrieved_sections": [
+        "Item 7. Management\u2019s Discussion and Analysis of Financial Condition and Results of Operat",
+        "Item 8. Financial Statements and Supplementary Data",
+        "ITEM 7. MANAGEMENT\u2019S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERAT",
+        "Item 7. Management's Discussion and Analysis of Financial Condition and Results of Operat",
+        "ITEM 19. EXHIBITS",
+        "ITEM 8. FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA",
+        "Item 1A. Risk Factors"
+      ],
+      "elapsed_s": 31.0
+    },
+    {
+      "id": 12,
+      "difficulty": "medium",
+      "question": "How do NVIDIA and AMD each describe their data center AI compute product families in their most recent filings?",
+      "expected_answer": "NVIDIA describes its data center platform as enabling AI training, inference, data processing, and CUDA-accelerated workloads. Its products include H100 and Blackwell architecture GPUs, and it references NVLink and NVSwitch interconnects. AMD describes its AMD Instinct GPU family (MI200, MI300, MI325, MI350 series) based on CDNA architecture, designed for AI training, inference, and exascale scientific computing. AMD also describes 5th generation EPYC processors for data center CPU workloads.",
+      "generated_answer": "Based on the provided SEC filings, here's how NVIDIA and AMD each describe their data center AI compute product families:\n\n**NVIDIA (NVDA 10-K, Period: 2026-01-25):**\n\nNVIDIA describes their data center AI compute products as part of a comprehensive \"NVIDIA accelerated computing platform\" where \"GPUs excel at parallel workloads such as the training and inferencing of neural networks.\" They emphasize that their \"Data Center systems are extreme co-designed with the GPU, CPU, NVLink switch, DPU, NIC, and scale-out networking along with software stacks and algorithms to deliver data center-scale computing solutions.\"\n\nKey product families mentioned include:\n- **NVIDIA Blackwell architecture**: \"launched in fiscal year 2025, a full set of data center scale infrastructure that includes GPUs, CPUs, DPUs, interconnects, switch chips and systems, and networking adapters. Blackwell excels at processing cutting edge generative AI and accelerated computing workloads with market leading performance and efficiency.\"\n- **NVIDIA Rubin platform**: \"unveiled in fiscal year 2026, which is expected to commence production shipments in the second half of fiscal year 2027. Built for agentic AI and reasoning, it excels at processing multi-step problem-solving and massive long-context workflows, delivering up to a 10x reduction in cost per token compared to Blackwell.\"\n\n**AMD (AMD 10-K, Period: 2025-12-27):**\n\nAMD describes their data center AI compute products across multiple product categories:\n\n- **AMD Instinct GPU family**: \"Our AMD Instinct\u2122 family of GPU products, including AMD Instinct MI200, MI300, MI325 and MI350 series, are based on AMD CDNA\u2122 architecture and designed for AI training, inference.\" The filing notes \"strong demand for our data center AI GPU products as large hyperscale customers, OEMs and ODMs deployed our AMD Instinct MI350X Series GPUs.\"\n\n- **AMD EPYC CPUs**: \"Our 5th generation AMD EPYC family of server processors delivers improved performance and efficiency for AI, cloud and enterprise workloads\" and \"deliver leadership performance and capabilities for a wide range of data center workloads, including AI.\"\n\n- **Networking solutions**: \"AMD Pensando\u2122 'Pollara' 400 AI NICs and 'Vulcano' AI NICs, which deliver high-speed connectivity across GPU clusters providing high-performance, AI-ready, flexible solutions for scale-out networking.\"\n\n- **Integrated platform**: \"Helios AI rack-scale platform solution that incorporates all of our data center products (CPUs, GPUs and Networking) to address the growing AI compute requirements.\"",
+      "retrieval_score": 1.0,
+      "generation_score": 0.8,
+      "judge_reason": "Most key facts are present including product families, architectures, and use cases, but missing H100 GPUs and NVLink/NVSwitch interconnects from NVIDIA's description.",
+      "pass": true,
+      "tickers_hit": [
+        "AMD",
+        "NVDA"
+      ],
+      "tickers_missed": [],
+      "retrieved_sections": [
+        "ITEM 1. BUSINESS",
+        "Item 1A. Risk Factors",
+        "Item 1. Business",
+        "ITEM 7. MANAGEMENT\u2019S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERAT"
+      ],
+      "elapsed_s": 17.1
+    },
+    {
+      "id": 13,
+      "difficulty": "medium",
+      "question": "Compare the R&D expense growth rates for AMD and Broadcom in their most recent fiscal years and what each attributed the increase to.",
+      "expected_answer": "AMD's R&D expense grew 25% (from $6.5B to $8.1B) in fiscal 2025, driven by higher employee-related costs and headcount growth for AI strategy. Broadcom's R&D expense grew 18% in fiscal 2025, with the increase primarily due to higher stock-based compensation.",
+      "generated_answer": "Based on the available documents, I can provide information about AMD's R&D expense growth, but I couldn't find specific R&D expense growth rate information for Broadcom.\n\n**AMD (ticker: AMD, 10-K filing, period ending 2025-12-27):**\n- R&D expenses increased by 25% in 2025 compared to 2024\n- R&D expenses were $8.1 billion in 2025 versus $6.5 billion in 2024 (an increase of $1.6 billion)\n- AMD attributed the increase to \"higher\" expenses, though the specific details of what caused the higher expenses were cut off in the provided context\n\n**Broadcom (ticker: AVGO):**\nI couldn't find R&D expense growth rate information for Broadcom in the available documents. The Broadcom 10-K excerpts provided focus on financial statements and consolidated statements of operations but don't include the management discussion section that would typically contain R&D expense analysis and growth attribution.\n\nTo make a complete comparison between AMD and Broadcom's R&D expense growth rates and their attributions, I would need additional context from Broadcom's management discussion and analysis section.",
+      "retrieval_score": 1.0,
+      "generation_score": 0.5,
+      "judge_reason": "Contains accurate AMD R&D information (25% growth, $6.5B to $8.1B) but completely missing Broadcom's R&D growth rate and attribution details.",
+      "pass": false,
+      "tickers_hit": [
+        "AMD",
+        "AVGO"
+      ],
+      "tickers_missed": [],
+      "retrieved_sections": [
+        "Item 7. Management\u2019s Discussion and Analysis of Financial Condition and Results of Operat",
+        "ITEM 7. MANAGEMENT\u2019S DISCUSSION AND ANALYSIS OF FINANCIAL CONDITION AND RESULTS OF OPERAT",
+        "ITEM 5. OPERATING AND FINANCIAL REVIEWS AND PROSPECTS",
+        "ITEM 8. FINANCIAL STATEMENTS AND SUPPLEMENTARY DATA",
+        "ITEM 15. EXHIBITS AND FINANCIAL STATEMENT SCHEDULES"
+      ],
+      "elapsed_s": 20.5
+    },
+    {
+      "id": 14,
+      "difficulty": "medium",
+      "question": "How do Arista Networks and TSM each describe the specific risk that deteriorating Taiwan-China relations could pose to their operations?",
+      "expected_answer": "Arista stated that 'any deterioration in relations between Taiwan and China could lead to additional sanctions or export controls' impacting component procurement. TSM, headquartered in Taiwan, described its global manufacturing and sales activities as subject to political and economic risks, and noted that escalation of trade tensions, including those involving Taiwan, could materially affect operations. TSM also cited that export licenses for key semiconductor equipment could be delayed or denied.",
+      "generated_answer": "Based on the provided documents, I can only find information about how Arista Networks describes the Taiwan-China relations risk. I couldn't find any information about TSM's description of this risk in the available documents.\n\n**Arista Networks (ANET) describes the Taiwan-China relations risk as follows:**\n\nFrom ANET's 10-K filing for period 2025-12-31, Item 1A Risk Factors:\n\n\"Any deterioration in relations between Taiwan and China could lead to additional sanctions or export controls on China, on specific individuals or entities, or otherwise in the region which could impact our ability to sell to certain of our customers, source components from China, or otherwise negatively impact our business.\"\n\nAdditionally, ANET lists among its international operation risks: \"possible deterioration in relations between Taiwan and China, and other factors affecting military, political, or economic conditions in Taiwan or elsewhere in Asia.\"\n\n**For TSM:** I couldn't find this in the available documents. The search results do not include any SEC filings or documents from TSM that describe their specific view of Taiwan-China relations risks.",
+      "retrieval_score": 0.5,
+      "generation_score": 0.5,
+      "judge_reason": "The generated answer accurately captures all key facts about Arista but completely lacks any information about TSM, which represents roughly half of the expected content.",
+      "pass": false,
+      "tickers_hit": [
+        "ANET"
+      ],
+      "tickers_missed": [
+        "TSM"
+      ],
+      "retrieved_sections": [
+        "ITEM 1A. RISK FACTORS",
+        "Item 1A. Risk Factors"
+      ],
+      "elapsed_s": 22.1
+    },
+    {
+      "id": 15,
+      "difficulty": "medium",
+      "question": "How does Broadcom's shift toward AI customers demanding lease arrangements rather than outright purchases represent a risk, as described in their 10-K?",
+      "expected_answer": "Broadcom noted in its Item 1A that 'AI customers may make and have made greater demands on us with regards to pricing and contractual terms, such as seeking to lease AI racks or systems based on our XPUs instead of purchasing.' This shift from purchase to lease models poses a risk to revenue recognition timing, cash flow, and margin, and represents a change in commercial power dynamics driven by large AI customers.",
+      "generated_answer": "According to Broadcom's 10-K filing (AVGO 10-K, Period: 2025-11-02), the shift toward AI customers demanding lease arrangements rather than outright purchases represents several key risks:\n\n**Revenue and Profitability Impact:**\nBroadcom states that their top customers, including AI customers, \"may make and have made greater demands on us with regards to pricing and contractual terms, such as seeking to lease AI racks or systems based on our XPUs instead of purchasing, as well as alternative financings for such leases or other novel or deferred payment models.\" As a result, \"we may not generate the amount of revenue or free cash flow or achieve the level of profitability that we or investors expect under such arrangements.\"\n\n**Increased Credit and Default Risk:**\nThe filing indicates that these alternative financing arrangements and deferred payment models \"may increase our exposure to credit or customer default risks.\"\n\n**Customer Financial Constraints:**\nBroadcom notes that \"some of these AI customers may have constrained resources or capital and may be unable to pay for their required AI infrastructure and/or seek alternative financings or novel or deferred payment models from their vendors and suppliers.\"\n\nThe company warns that if AI customers \"are otherwise unable to meet their obligations and we cannot offset the downturn in their business, it could have a material adverse effect on our business, operating results, financial condition and stock price.\"\n\n*Source: AVGO 10-K, Period: 2025-11-02, Section: ITEM 1A. RISK FACTORS*",
+      "retrieval_score": 1.0,
+      "generation_score": 1.0,
+      "judge_reason": "All key facts are present and accurate, including the direct quote, revenue recognition timing risks, cash flow impact, and power dynamics shift from AI customers.",
+      "pass": true,
+      "tickers_hit": [
+        "AVGO"
+      ],
+      "tickers_missed": [],
+      "retrieved_sections": [
+        "ITEM 1A. RISK FACTORS",
+        "Item 1A. Risk Factors",
+        "ITEM 3. KEY INFORMATION"
+      ],
+      "elapsed_s": 16.0
+    }
+  ]
+}

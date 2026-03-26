@@ -1,0 +1,263 @@
+[
+  {
+    "id": 1,
+    "question": "What was NVIDIA's total revenue for fiscal year 2026 and how did it compare to the prior year?",
+    "expected_answer": "NVIDIA's total revenue for fiscal year 2026 was $215.9 billion, up 65% from the prior year.",
+    "relevant_tickers": [
+      "NVDA"
+    ],
+    "source_section": "Item 7",
+    "doc_type": "10-K",
+    "difficulty": "easy",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 2,
+    "question": "What was NVIDIA's gross margin for fiscal year 2026 and how did it change year-over-year?",
+    "expected_answer": "NVIDIA's gross margin for fiscal year 2026 was 71.1%, a decline of 3.9 percentage points from 75.0% in fiscal year 2025.",
+    "relevant_tickers": [
+      "NVDA"
+    ],
+    "source_section": "Item 7",
+    "doc_type": "10-K",
+    "difficulty": "easy",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 3,
+    "question": "What was AMD's Data Center segment net revenue in fiscal year 2025 and what drove the growth?",
+    "expected_answer": "AMD's Data Center net revenue was $16.6 billion in 2025, up 32% from $12.6 billion in 2024, primarily driven by strong demand for 5th generation AMD EPYC processors and AMD Instinct MI350 Series GPUs.",
+    "relevant_tickers": [
+      "AMD"
+    ],
+    "source_section": "Item 7",
+    "doc_type": "10-K",
+    "difficulty": "easy",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 4,
+    "question": "How much did AMD spend on research and development in fiscal year 2025 and what caused the change?",
+    "expected_answer": "AMD's R&D expense was $8.1 billion in 2025, an increase of $1.6 billion or 25% compared to $6.5 billion in 2024. The increase was primarily due to higher employee-related costs from headcount growth in support of AI strategy.",
+    "relevant_tickers": [
+      "AMD"
+    ],
+    "source_section": "Item 7",
+    "doc_type": "10-K",
+    "difficulty": "easy",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 5,
+    "question": "What were Broadcom's two revenue segments in fiscal year 2025 and how much did each contribute?",
+    "expected_answer": "Broadcom reported two segments in fiscal year 2025: Semiconductor Solutions at $36.858 billion (up 22%) and Infrastructure Software at $27.029 billion (up 26%), for total net revenue of $63.887 billion, up 24% from $51.574 billion in fiscal year 2024.",
+    "relevant_tickers": [
+      "AVGO"
+    ],
+    "source_section": "Item 7",
+    "doc_type": "10-K",
+    "difficulty": "easy",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 6,
+    "question": "What was Arista Networks' gross margin in the most recent fiscal year and what share of revenue came from the Americas?",
+    "expected_answer": "Arista's gross margin was 64.1%, up from 61.9% in the prior year. The Americas accounted for 79.1% of total revenue ($5,729.0 million out of approximately $7.0 billion total), up from 79.3% in the prior year.",
+    "relevant_tickers": [
+      "ANET"
+    ],
+    "source_section": "Item 7",
+    "doc_type": "10-K",
+    "difficulty": "easy",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 7,
+    "question": "What customer concentration did Taiwan Semiconductor disclose for fiscal year 2024?",
+    "expected_answer": "TSM's top 10 customers accounted for approximately 76% of net revenue in 2024, up from 70% in 2023 and 68% in 2022. The largest single customer accounted for 22% of net revenue in 2024.",
+    "relevant_tickers": [
+      "TSM"
+    ],
+    "source_section": "Item 3",
+    "doc_type": "20-F",
+    "difficulty": "easy",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 8,
+    "question": "What percentage of NVIDIA's Data Center revenue was attributed to AI inference workloads?",
+    "expected_answer": "NVIDIA estimated that approximately 40% of its Data Center revenue over the past year was for AI inference.",
+    "relevant_tickers": [
+      "NVDA"
+    ],
+    "source_section": "Item 7",
+    "doc_type": "10-K",
+    "difficulty": "easy",
+    "preferred_doc_type": null
+  },
+  {
+    "id": 9,
+    "question": "Which companies flagged U.S. export controls on semiconductors to China as a material risk factor, and what were the common themes?",
+    "expected_answer": "All six companies flagged export controls as a material risk. NVIDIA noted that controls could 'prohibit us from exporting our products to any or all customers' and had already negatively impacted revenue. AMD cited import/export licensing requirements and worsening U.S.-China trade relations. Broadcom flagged tariffs and trade tensions with China specifically. TSM noted controls could affect equipment procurement through denial of export licenses. Arista cited China's export controls on gallium and germanium used in semiconductor manufacturing. Micron flagged government actions restricting the movement of goods and R&D activities.",
+    "relevant_tickers": [
+      "NVDA",
+      "AMD",
+      "AVGO",
+      "TSM",
+      "ANET",
+      "MU"
+    ],
+    "source_section": "Item 1A",
+    "doc_type": "10-K",
+    "difficulty": "medium",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 10,
+    "question": "Which companies explicitly stated that AI demand growth may not be sustainable or that its long-term trajectory is unknown?",
+    "expected_answer": "AMD stated that 'the near-term and long-term trajectory of such generative AI solutions is unknown.' Broadcom stated that 'the semiconductor industry is undergoing profound change due to the adoption and proliferation of AI and has experienced a significant upturn, which may not be sustainable.' Arista noted that 'the long-term trajectory remains unknown' regarding AI-driven networking demand. NVIDIA, by contrast, described itself as having transitioned into an AI infrastructure company without similar hedging language.",
+    "relevant_tickers": [
+      "AMD",
+      "AVGO",
+      "ANET",
+      "NVDA"
+    ],
+    "source_section": "Item 1A",
+    "doc_type": "10-K",
+    "difficulty": "medium",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 11,
+    "question": "Which companies disclosed individual customers representing 10% or more of revenue, and what were the disclosed percentages?",
+    "expected_answer": "NVIDIA disclosed two customers at 22% and 14% of total revenue in fiscal year 2026. TSM disclosed its largest customer at 22% of net revenue in 2024. Neither AMD, Broadcom, Arista, nor Micron named specific customers at or above the 10% threshold in the retrieved portions of their filings.",
+    "relevant_tickers": [
+      "NVDA",
+      "TSM",
+      "AMD",
+      "AVGO",
+      "ANET",
+      "MU"
+    ],
+    "source_section": "Item 1A",
+    "doc_type": "10-K",
+    "difficulty": "medium",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 12,
+    "question": "How do NVIDIA and AMD each describe their data center AI compute product families in their most recent filings?",
+    "expected_answer": "NVIDIA describes its data center platform as enabling AI training, inference, data processing, and CUDA-accelerated workloads. Its products include H100 and Blackwell architecture GPUs, and it references NVLink and NVSwitch interconnects. AMD describes its AMD Instinct GPU family (MI200, MI300, MI325, MI350 series) based on CDNA architecture, designed for AI training, inference, and exascale scientific computing. AMD also describes 5th generation EPYC processors for data center CPU workloads.",
+    "relevant_tickers": [
+      "NVDA",
+      "AMD"
+    ],
+    "source_section": "Item 1",
+    "doc_type": "10-K",
+    "difficulty": "medium",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 13,
+    "question": "Compare the R&D expense growth rates for AMD and Broadcom in their most recent fiscal years and what each attributed the increase to.",
+    "expected_answer": "AMD's R&D expense grew 25% (from $6.5B to $8.1B) in fiscal 2025, driven by higher employee-related costs and headcount growth for AI strategy. Broadcom's R&D expense grew 18% in fiscal 2025, with the increase primarily due to higher stock-based compensation.",
+    "relevant_tickers": [
+      "AMD",
+      "AVGO"
+    ],
+    "source_section": "Item 7",
+    "doc_type": "10-K",
+    "difficulty": "medium",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 14,
+    "question": "How do Arista Networks and TSM each describe the specific risk that deteriorating Taiwan-China relations could pose to their operations?",
+    "expected_answer": "Arista stated that 'any deterioration in relations between Taiwan and China could lead to additional sanctions or export controls' impacting component procurement. TSM, headquartered in Taiwan, described its global manufacturing and sales activities as subject to political and economic risks, and noted that escalation of trade tensions, including those involving Taiwan, could materially affect operations. TSM also cited that export licenses for key semiconductor equipment could be delayed or denied.",
+    "relevant_tickers": [
+      "ANET",
+      "TSM"
+    ],
+    "source_section": "Item 1A",
+    "doc_type": "10-K",
+    "difficulty": "medium",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 15,
+    "question": "How does Broadcom's shift toward AI customers demanding lease arrangements rather than outright purchases represent a risk, as described in their 10-K?",
+    "expected_answer": "Broadcom noted in its Item 1A that 'AI customers may make and have made greater demands on us with regards to pricing and contractual terms, such as seeking to lease AI racks or systems based on our XPUs instead of purchasing.' This shift from purchase to lease models poses a risk to revenue recognition timing, cash flow, and margin, and represents a change in commercial power dynamics driven by large AI customers.",
+    "relevant_tickers": [
+      "AVGO"
+    ],
+    "source_section": "Item 1A",
+    "doc_type": "10-K",
+    "difficulty": "medium",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 16,
+    "question": "NVIDIA's 10-K shows both record revenue growth and a gross margin decline. What do the Item 7 disclosures reveal about the specific cost pressures causing this divergence?",
+    "expected_answer": "NVIDIA reported FY2026 revenue of $215.9B (up 65%) alongside a gross margin of 71.1%, down 3.9 percentage points from 75.0% in FY2025. Item 7 reveals the margin compression was partly driven by inventory and supply chain dynamics: sales of previously reserved inventory and settlements of excess purchase obligations resulted in provision releases of $1.5B and $689M in FY2026 and FY2025 respectively, with a net unfavorable gross margin impact of 2.6% in FY2026 and 2.3% in FY2025. This suggests that while revenue scaled dramatically, the transition to new product generations and associated inventory management created material cost headwinds.",
+    "relevant_tickers": [
+      "NVDA"
+    ],
+    "source_section": "Item 7",
+    "doc_type": "10-K",
+    "difficulty": "hard",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 17,
+    "question": "How do the supply chain risks described by Arista in Item 1A connect to the geopolitical risks flagged by both Arista and TSM, given that Arista relies on semiconductor components that TSM manufactures?",
+    "expected_answer": "Arista's Item 1A explicitly flags China's export controls on gallium and germanium \u2014 metals used in semiconductor manufacturing \u2014 as causing component shortages and extended lead times. It also flags that deteriorating Taiwan-China relations could trigger additional sanctions affecting component sourcing. TSM, as a primary semiconductor foundry in Taiwan, flagged in its 20-F that trade tensions could result in unavailability of key manufacturing equipment through denied export licenses. The intersection is that Arista's component supply risk is directly downstream of TSM's equipment procurement risk: restrictions on TSM's access to advanced lithography tools would compress wafer capacity, which would cascade into component shortages for customers like Arista.",
+    "relevant_tickers": [
+      "ANET",
+      "TSM"
+    ],
+    "source_section": "Item 1A",
+    "doc_type": "10-K",
+    "difficulty": "hard",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 18,
+    "question": "Across Item 1 and Item 7, how do NVIDIA, AMD, and Broadcom each position their competitive moats in AI silicon, and where do their strategies diverge?",
+    "expected_answer": "NVIDIA positions its moat as an end-to-end platform: CUDA software ecosystem, NVLink/NVSwitch interconnects, and full-stack AI factory solutions, with ~40% of data center revenue from inference indicating broad deployment. AMD positions its moat as architecture breadth \u2014 CDNA-based Instinct GPUs for AI training and inference alongside EPYC CPUs for server workloads \u2014 targeting customers who want multi-vendor optionality. Broadcom positions its moat as custom silicon (XPUs) co-designed with hyperscaler customers, plus its infrastructure software business, with AI customers trending toward leased rather than purchased deployments. The key divergence: NVIDIA sells a platform, AMD sells compute alternatives, and Broadcom sells customization and software lock-in.",
+    "relevant_tickers": [
+      "NVDA",
+      "AMD",
+      "AVGO"
+    ],
+    "source_section": "Item 1",
+    "doc_type": "10-K",
+    "difficulty": "hard",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 19,
+    "question": "What does the pattern of increasing customer concentration across NVIDIA, TSM, and Arista suggest about how AI infrastructure spending is consolidating, based solely on their filings?",
+    "expected_answer": "NVIDIA reported two customers at 22% and 14% of FY2026 revenue and noted the trend 'may continue.' TSM reported its top 10 customers at 76% of 2024 revenue (up from 68% in 2022) and its largest customer at 22%, while explicitly warning that 'a more concentrated customer base will subject our revenue to seasonal demand fluctuations.' Arista flagged 'unpredictability in the timing of orders from our large customers' due to complexity and capital expenditure variability. Taken together, all three are experiencing concentration at the top of the AI infrastructure stack: a small number of hyperscalers and cloud providers are accounting for an increasingly dominant share of capital spending, creating both revenue upside and demand-timing volatility for suppliers across compute, foundry, and networking.",
+    "relevant_tickers": [
+      "NVDA",
+      "TSM",
+      "ANET"
+    ],
+    "source_section": "Item 1A",
+    "doc_type": "10-K",
+    "difficulty": "hard",
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": 20,
+    "question": "How do Micron's HBM product positioning in Item 1 and its description of the memory market recovery in Item 7 together illustrate the role of AI in reshaping the memory industry's demand cycle?",
+    "expected_answer": "In Item 1, Micron describes its Cloud Memory Business Unit (CMBU) as focused on HBM for data center customers, positioning HBM as the high-value AI-adjacent product within its portfolio. In Item 7, Micron attributes the memory market recovery from the severe 2023 downturn to 'increasing demand growth, driven in part by deployment of AI and mostly normal customer inventories, combined with industry-wide supply discipline.' CMBU revenue grew 103% in fiscal 2024. Together, these disclosures show that AI is not merely an incremental demand driver for memory but has structurally shifted the demand composition: HBM, which commands far higher ASPs than commodity DRAM, is now the growth vector within an industry that was previously dominated by cyclical commodity dynamics.",
+    "relevant_tickers": [
+      "MU"
+    ],
+    "source_section": "Item 7",
+    "doc_type": "10-K",
+    "difficulty": "hard",
+    "preferred_doc_type": "filing"
+  }
+]
