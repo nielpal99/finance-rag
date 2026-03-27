@@ -12,9 +12,6 @@ from pathlib import Path
 # Make query/ importable
 sys.path.insert(0, str(Path(__file__).parent / "query"))
 
-from dotenv import load_dotenv
-load_dotenv(Path(__file__).parent / ".env")
-
 import anthropic
 import streamlit as st
 
@@ -40,7 +37,8 @@ NOT_FOUND_PHRASE = "I couldn't find this in the available documents"
 
 @st.cache_resource
 def get_client():
-    return anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    api_key = st.secrets.get("ANTHROPIC_API_KEY", os.environ.get("ANTHROPIC_API_KEY"))
+    return anthropic.Anthropic(api_key=api_key)
 
 # ── RAG pipeline ──────────────────────────────────────────────────────────────
 

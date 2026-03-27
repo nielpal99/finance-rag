@@ -1,0 +1,19 @@
+# Core app
+streamlit==1.50.0
+anthropic==0.85.0
+
+# Vector DB + reranking
+pinecone==7.3.0
+cohere==5.20.7
+
+# Embeddings (bge-large-en-v1.5)
+sentence-transformers==5.1.2
+torch==2.8.0
+
+# Evals
+braintrust==0.3.15
+
+# Ingestion utilities
+tiktoken==0.12.0
+requests==2.32.5
+python-dotenv==1.2.1
