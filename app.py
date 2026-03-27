@@ -33,6 +33,15 @@ _DOC_TYPE_MAP = {
 
 NOT_FOUND_PHRASE = "I couldn't find this in the available documents"
 
+_RISK_KEYWORDS = {"risk", "risk factor", "disclosed"}
+
+def preprocess_query(query: str) -> str:
+    """Append an Item 1A section hint for risk-related queries."""
+    lower = query.lower()
+    if any(kw in lower for kw in _RISK_KEYWORDS):
+        return query + " Item 1A risk factors"
+    return query
+
 # ── Anthropic client (cached) ─────────────────────────────────────────────────
 
 @st.cache_resource
@@ -44,10 +53,11 @@ def get_client():
 
 def run_rag(query: str, tickers: list[str], doc_type_filter) -> dict:
     """Retrieve across selected tickers, rerank globally, stream answer."""
+    retrieval_query = preprocess_query(query)
     all_results = []
     for ticker in tickers:
         chunks = retrieve(
-            query,
+            retrieval_query,
             namespace=ticker,
             top_k=TOP_K,
             rerank_top_n=RERANK_PER_NS,
