@@ -49,6 +49,10 @@ def route_query(query: str) -> str:
         return "snowflake"
     return "pinecone"
 
+def _format_concept(name: str) -> str:
+    """Convert CamelCase XBRL concept to readable label: OperatingIncomeLoss → Operating Income Loss"""
+    return re.sub(r"(?<=[a-z])(?=[A-Z])|(?<=[A-Z])(?=[A-Z][a-z])", " ", name)
+
 def query_snowflake(query: str, ticker: str) -> str:
     secrets = toml.load(".streamlit/secrets.toml")
     sf = secrets["snowflake"]
@@ -84,6 +88,6 @@ def query_snowflake(query: str, ticker: str) -> str:
 
     result = f"**Structured financial data for {ticker}:**\n\n"
     for concept, value, period_end, form in rows:
-        result += f"- {concept}: ${value:,.0f} (as of {period_end}, {form})\n\n"
+        result += f"- {_format_concept(concept)}: ${value:,.0f} (as of {period_end}, {form})\n\n"
 
     return result
