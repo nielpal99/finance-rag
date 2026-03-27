@@ -8,3 +8,4 @@ requests
 beautifulsoup4
 firecrawl-py
 python-dotenv
+snowflake-connector-python
