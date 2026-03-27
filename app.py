@@ -17,6 +17,7 @@ import streamlit as st
 
 from retriever import retrieve, rerank, RERANK_PER_NS, RERANK_FINAL_N
 from prompt_builder import build_prompt
+from tavily_search import tavily_search, should_use_tavily
 
 sys.path.insert(0, str(Path(__file__).parent / ".streamlit"))
 from query_router import route_query, detect_ticker, query_snowflake
@@ -185,8 +186,16 @@ if submitted and query.strip():
 
         answer_box.markdown(full_answer)
 
-        # not-found handling
-        if NOT_FOUND_PHRASE in full_answer:
+        # Tavily fallback — trigger if RAG couldn't find answer or confidence is low
+        if should_use_tavily(full_answer, sources):
+            with st.spinner("Searching latest news and filings…"):
+                tavily_answer = tavily_search(clean_query, selected_tickers)
+            if tavily_answer:
+                st.divider()
+                st.markdown("### 🌐 Live Web Results")
+                st.markdown(tavily_answer)
+                st.caption("Source: Tavily search")
+        elif NOT_FOUND_PHRASE in full_answer:
             st.info(
                 "The pipeline couldn't find relevant information in the selected sources. "
                 "Try switching the document type filter or broadening your company selection.",

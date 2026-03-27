@@ -18,7 +18,8 @@
       "Bash(for f:*)",
       "Bash(tee logs/eval_medium_full_corpus.log)",
       "Bash(tee logs/eval_braintrust_v1.log)",
-      "Bash(tee logs/eval_hard_v2.log)"
+      "Bash(tee logs/eval_hard_v2.log)",
+      "Bash(python3 -c \":*)"
     ]
   }
 }
