@@ -22,6 +22,14 @@ from typing import Optional
 from dotenv import load_dotenv
 from pinecone import Pinecone
 
+try:
+    import streamlit as st
+    def get_secret(key: str, default: str = "") -> str:
+        return st.secrets.get(key) or os.environ.get(key, default)
+except ImportError:
+    def get_secret(key: str, default: str = "") -> str:
+        return os.environ.get(key, default)
+
 # ── config ────────────────────────────────────────────────────────────────────
 
 load_dotenv(Path(__file__).parent.parent / ".env")
@@ -39,7 +47,7 @@ RERANK_FINAL_N    = 8    # final chunks after global rerank across all namespace
 COHERE_MODEL      = "rerank-v3.5"
 VOYAGE_MODEL      = "voyage-finance-2"
 
-EMBEDDING_MODEL   = os.environ.get("EMBEDDING_MODEL", "bge-large-en-v1.5")
+EMBEDDING_MODEL   = get_secret("EMBEDDING_MODEL", "bge-large-en-v1.5")
 
 # ── BGE model (lazy init, used when EMBEDDING_MODEL=bge-large-en-v1.5) ────────
 
@@ -70,7 +78,7 @@ def _get_voyage():
     global _voyage_client
     if _voyage_client is not None:
         return _voyage_client
-    api_key = os.environ.get("VOYAGE_API_KEY", "")
+    api_key = get_secret("VOYAGE_API_KEY")
     if not api_key:
         raise EnvironmentError(
             "VOYAGE_API_KEY is not set — required for EMBEDDING_MODEL=voyage-finance-2"
@@ -90,7 +98,7 @@ def _get_cohere():
     global _cohere_client
     if _cohere_client is not None:
         return _cohere_client
-    api_key = os.environ.get("COHERE_API_KEY", "")
+    api_key = get_secret("COHERE_API_KEY")
     if not api_key:
         return None
     import cohere
@@ -203,7 +211,7 @@ def retrieve(
     """
     query_vec = embed_query(query)
 
-    pc = Pinecone(api_key=os.environ["PINECONE_API_KEY"])
+    pc = Pinecone(api_key=get_secret("PINECONE_API_KEY"))
     index = pc.Index(INDEX_NAME)
 
     pinecone_filter = _DOC_TYPE_FILTERS.get(doc_type_filter) if doc_type_filter else None

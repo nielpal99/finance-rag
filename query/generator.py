@@ -13,6 +13,14 @@ from pathlib import Path
 from dotenv import load_dotenv
 import anthropic
 
+try:
+    import streamlit as st
+    def get_secret(key: str, default: str = "") -> str:
+        return st.secrets.get(key) or os.environ.get(key, default)
+except ImportError:
+    def get_secret(key: str, default: str = "") -> str:
+        return os.environ.get(key, default)
+
 from retriever import retrieve
 from prompt_builder import build_prompt
 
@@ -43,7 +51,7 @@ def generate(
     results = retrieve(query, namespace=namespace, top_k=top_k)
     prompt = build_prompt(query, results)
 
-    client = anthropic.Anthropic(api_key=os.environ["ANTHROPIC_API_KEY"])
+    client = anthropic.Anthropic(api_key=get_secret("ANTHROPIC_API_KEY"))
     message = client.messages.create(
         model=MODEL,
         max_tokens=MAX_TOKENS,
