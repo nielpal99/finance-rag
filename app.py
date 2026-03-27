@@ -18,6 +18,9 @@ import streamlit as st
 from retriever import retrieve, rerank, RERANK_PER_NS, RERANK_FINAL_N
 from prompt_builder import build_prompt
 
+sys.path.insert(0, str(Path(__file__).parent / ".streamlit"))
+from query_router import route_query, detect_ticker, query_snowflake
+
 # ── config ────────────────────────────────────────────────────────────────────
 
 MODEL      = "claude-sonnet-4-20250514"
@@ -146,66 +149,82 @@ query = st.text_area(
 submitted = st.button("Ask", type="primary", use_container_width=False)
 
 if submitted and query.strip():
-    with st.spinner("Retrieving…"):
-        rag = run_rag(query.strip(), selected_tickers, doc_type_filter)
+    clean_query = query.strip()
+    route = route_query(clean_query)
+    ticker = detect_ticker(clean_query)
 
-    sources  = rag["sources"]
-    prompt   = rag["prompt"]
+    if route == "snowflake" and ticker:
+        st.divider()
+        with st.spinner("Querying structured financial data…"):
+            sf_answer = query_snowflake(clean_query, ticker)
+        st.markdown(sf_answer)
+        st.caption("📊 Source: Snowflake XBRL (SEC EDGAR structured data)")
+        st.session_state.history.append({
+            "query": clean_query,
+            "answer": sf_answer,
+            "sources": [],
+        })
+        st.session_state.history = st.session_state.history[-5:]
+    else:
+        with st.spinner("Retrieving…"):
+            rag = run_rag(clean_query, selected_tickers, doc_type_filter)
 
-    st.divider()
+        sources  = rag["sources"]
+        prompt   = rag["prompt"]
 
-    # ── stream answer ──────────────────────────────────────────────────────────
-    answer_box = st.empty()
-    full_answer = ""
+        st.divider()
 
-    with st.spinner("Generating…"):
-        for chunk in stream_answer(prompt):
-            full_answer += chunk
-            answer_box.markdown(full_answer + "▌")
+        # ── stream answer ──────────────────────────────────────────────────────
+        answer_box = st.empty()
+        full_answer = ""
 
-    answer_box.markdown(full_answer)
+        with st.spinner("Generating…"):
+            for chunk in stream_answer(prompt):
+                full_answer += chunk
+                answer_box.markdown(full_answer + "▌")
 
-    # not-found handling
-    if NOT_FOUND_PHRASE in full_answer:
-        st.info(
-            "The pipeline couldn't find relevant information in the selected sources. "
-            "Try switching the document type filter or broadening your company selection.",
-            icon="ℹ️",
-        )
+        answer_box.markdown(full_answer)
 
-    # ── save to history ────────────────────────────────────────────────────────
-    st.session_state.history.append({
-        "query":   query.strip(),
-        "answer":  full_answer,
-        "sources": sources,
-    })
-    # keep last 5
-    st.session_state.history = st.session_state.history[-5:]
+        # not-found handling
+        if NOT_FOUND_PHRASE in full_answer:
+            st.info(
+                "The pipeline couldn't find relevant information in the selected sources. "
+                "Try switching the document type filter or broadening your company selection.",
+                icon="ℹ️",
+            )
 
-    # ── sources ────────────────────────────────────────────────────────────────
-    st.divider()
-    with st.expander(f"Sources ({len(sources)} chunks retrieved)", expanded=show_chunks):
-        for i, r in enumerate(sources, 1):
-            ticker    = r.get("ticker", "—")
-            doc_type  = r.get("filing_type") or r.get("doc_type", "—")
-            section   = r.get("section") or r.get("fiscal_quarter", "—")
-            date      = r.get("filed_at") or r.get("filing_date") or r.get("period_of_report", "—")
-            score     = r.get("score", 0.0)
+        # ── save to history ────────────────────────────────────────────────────
+        st.session_state.history.append({
+            "query":   clean_query,
+            "answer":  full_answer,
+            "sources": sources,
+        })
+        st.session_state.history = st.session_state.history[-5:]
 
-            col1, col2, col3, col4, col5 = st.columns([1, 2, 3, 2, 1])
-            col1.markdown(f"**{ticker}**")
-            col2.caption(doc_type)
-            col3.caption(section)
-            col4.caption(date)
-            col5.caption(f"{score:.3f}")
+        # ── sources ────────────────────────────────────────────────────────────
+        st.divider()
+        with st.expander(f"Sources ({len(sources)} chunks retrieved)", expanded=show_chunks):
+            for i, r in enumerate(sources, 1):
+                ticker    = r.get("ticker", "—")
+                doc_type  = r.get("filing_type") or r.get("doc_type", "—")
+                section   = r.get("section") or r.get("fiscal_quarter", "—")
+                date      = r.get("filed_at") or r.get("filing_date") or r.get("period_of_report", "—")
+                score     = r.get("score", 0.0)
 
-            if show_chunks:
-                st.markdown(
-                    f"<div style='background:#f8f9fa;border-left:3px solid #dee2e6;"
-                    f"padding:8px 12px;margin:4px 0 12px 0;font-size:0.85em;"
-                    f"border-radius:2px'>{r.get('text','')[:500]}</div>",
-                    unsafe_allow_html=True,
-                )
+                col1, col2, col3, col4, col5 = st.columns([1, 2, 3, 2, 1])
+                col1.markdown(f"**{ticker}**")
+                col2.caption(doc_type)
+                col3.caption(section)
+                col4.caption(date)
+                col5.caption(f"{score:.3f}")
+
+                if show_chunks:
+                    st.markdown(
+                        f"<div style='background:#f8f9fa;border-left:3px solid #dee2e6;"
+                        f"padding:8px 12px;margin:4px 0 12px 0;font-size:0.85em;"
+                        f"border-radius:2px'>{r.get('text','')[:500]}</div>",
+                        unsafe_allow_html=True,
+                    )
 
 elif submitted and not query.strip():
     st.warning("Please enter a question.")
