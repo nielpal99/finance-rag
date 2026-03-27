@@ -37,7 +37,7 @@ NOT_FOUND_PHRASE = "I couldn't find this in the available documents"
 
 @st.cache_resource
 def get_client():
-    api_key = st.secrets.get("ANTHROPIC_API_KEY", os.environ.get("ANTHROPIC_API_KEY"))
+    api_key = os.environ.get("ANTHROPIC_API_KEY") or st.secrets.get("ANTHROPIC_API_KEY", "")
     return anthropic.Anthropic(api_key=api_key)
 
 # ── RAG pipeline ──────────────────────────────────────────────────────────────
