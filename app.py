@@ -17,7 +17,7 @@ import streamlit as st
 
 from retriever import retrieve, rerank, RERANK_PER_NS, RERANK_FINAL_N
 from prompt_builder import build_prompt
-from tavily_search import tavily_search, should_use_tavily
+from query.tavily_search import tavily_search, should_use_tavily
 
 sys.path.insert(0, str(Path(__file__).parent / ".streamlit"))
 from query_router import route_query, detect_ticker, query_snowflake
