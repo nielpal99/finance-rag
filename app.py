@@ -75,15 +75,31 @@ def run_rag(query: str, tickers: list[str], doc_type_filter) -> dict:
 
 
 def stream_answer(prompt: str):
-    """Yield text chunks from Claude via the streaming API."""
+    """Yield text chunks from Claude. Tries streaming first, falls back to non-streaming."""
     client = get_client()
-    with client.messages.stream(
-        model=MODEL,
-        max_tokens=MAX_TOKENS,
-        messages=[{"role": "user", "content": prompt}],
-    ) as stream:
-        for text in stream.text_stream:
-            yield text
+    messages = [{"role": "user", "content": prompt}]
+    try:
+        with client.messages.stream(
+            model=MODEL,
+            max_tokens=MAX_TOKENS,
+            messages=messages,
+        ) as stream:
+            for text in stream.text_stream:
+                yield text
+    except anthropic.APIStatusError as e:
+        st.error(f"Claude API error (HTTP {e.status_code}): {e.message}")
+        # fallback to non-streaming
+        try:
+            msg = client.messages.create(
+                model=MODEL,
+                max_tokens=MAX_TOKENS,
+                messages=messages,
+            )
+            yield msg.content[0].text
+        except anthropic.APIStatusError as e2:
+            st.error(f"Fallback also failed (HTTP {e2.status_code}): {e2.message}")
+    except Exception as e:
+        st.error(f"Unexpected error during generation: {e}")
 
 # ── page setup ────────────────────────────────────────────────────────────────
 
