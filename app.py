@@ -18,6 +18,7 @@ import streamlit as st
 from retriever import retrieve, rerank, RERANK_PER_NS, RERANK_FINAL_N
 from prompt_builder import build_prompt
 from query.tavily_search import tavily_search, should_use_tavily
+from multi_hop import multi_hop_query
 
 sys.path.insert(0, str(Path(__file__).parent / ".streamlit"))
 from query_router import route_query, detect_ticker, query_snowflake
@@ -52,6 +53,20 @@ def preprocess_query(query: str) -> str:
 def get_client():
     api_key = os.environ.get("ANTHROPIC_API_KEY") or st.secrets.get("ANTHROPIC_API_KEY", "")
     return anthropic.Anthropic(api_key=api_key)
+
+# ── query complexity ──────────────────────────────────────────────────────────
+
+_COMPLEX_KEYWORDS = [
+    "compare", "contrast", "both", "each", "versus", "vs", "diverge", "across",
+    "item 1", "item 1.", "item 1a", "item 1a.", "item 7", "item 7.",
+    "connect", "link", "reconcile", "across sections", "cross-section",
+]
+
+def is_complex_query(query: str, tickers: list[str]) -> bool:
+    q = query.lower()
+    has_complex_language = any(kw in q for kw in _COMPLEX_KEYWORDS)
+    has_multiple_tickers = len(tickers) > 1
+    return has_complex_language or has_multiple_tickers
 
 # ── RAG pipeline ──────────────────────────────────────────────────────────────
 
@@ -171,6 +186,13 @@ if submitted and query.strip():
     ticker = detect_ticker(clean_query)
 
     if route == "snowflake" and ticker:
+        print(f"  [route] snowflake  | ticker={ticker} | query={clean_query[:60]}")
+    elif is_complex_query(clean_query, selected_tickers):
+        print(f"  [route] multi-hop  | tickers={selected_tickers} | query={clean_query[:60]}")
+    else:
+        print(f"  [route] standard   | query={clean_query[:60]}")
+
+    if route == "snowflake" and ticker:
         st.divider()
         with st.spinner("Querying structured financial data…"):
             sf_answer = query_snowflake(clean_query, ticker)
@@ -179,6 +201,18 @@ if submitted and query.strip():
         st.session_state.history.append({
             "query": clean_query,
             "answer": sf_answer,
+            "sources": [],
+        })
+        st.session_state.history = st.session_state.history[-5:]
+    elif is_complex_query(clean_query, selected_tickers):
+        with st.spinner("Running multi-hop retrieval…"):
+            mh_answer = multi_hop_query(clean_query, selected_tickers)
+        st.divider()
+        st.markdown(mh_answer)
+        st.caption("🔗 Source: Multi-hop retrieval (LlamaIndex)")
+        st.session_state.history.append({
+            "query": clean_query,
+            "answer": mh_answer,
             "sources": [],
         })
         st.session_state.history = st.session_state.history[-5:]

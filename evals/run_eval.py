@@ -84,8 +84,9 @@ def _run_retrieval(
     relevant_tickers: list,
     preferred_doc_type: str = None,
 ) -> dict:
+    namespaces = relevant_tickers if relevant_tickers else ALL_TICKERS
     all_results = []
-    for ticker in ALL_TICKERS:
+    for ticker in namespaces:
         chunks = retrieve(
             question,
             namespace=ticker,

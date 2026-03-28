@@ -187,6 +187,7 @@ def retrieve(
     top_k: int = DEFAULT_TOP_K,
     rerank_top_n: int = RERANK_TOP_N,
     doc_type_filter: Optional[str] = None,
+    metadata_filter: Optional[dict] = None,
 ) -> list[dict]:
     """Return chunks for *query* from *namespace*.
 
@@ -214,7 +215,11 @@ def retrieve(
     pc = Pinecone(api_key=get_secret("PINECONE_API_KEY"))
     index = pc.Index(INDEX_NAME)
 
-    pinecone_filter = _DOC_TYPE_FILTERS.get(doc_type_filter) if doc_type_filter else None
+    doc_filter  = _DOC_TYPE_FILTERS.get(doc_type_filter) if doc_type_filter else None
+    if doc_filter and metadata_filter:
+        pinecone_filter = {"$and": [doc_filter, metadata_filter]}
+    else:
+        pinecone_filter = doc_filter or metadata_filter or None
 
     query_kwargs = dict(
         vector=query_vec,
