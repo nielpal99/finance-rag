@@ -259,5 +259,130 @@
     "doc_type": "10-K",
     "difficulty": "hard",
     "preferred_doc_type": "filing"
+  },
+  {
+    "id": "ST01",
+    "question": "For NVDA, connect Item 1 business strategy to Item 7 margin dynamics: which business model choice in Item 1 most plausibly explains the gross-margin trend discussed in Item 7, and what evidence supports it?",
+    "difficulty": "hard",
+    "expected": "TBD",
+    "stress_type": "Missing Link",
+    "target_failure_mode": "Synthesis Failure",
+    "relevant_tickers": [
+      "NVDA"
+    ],
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": "ST02",
+    "question": "For AMD, identify one risk named in Item 1A and show where Item 7 indicates that risk already affected operating results; provide both the risk statement and the MD&A evidence.",
+    "difficulty": "hard",
+    "expected": "TBD",
+    "stress_type": "Missing Link",
+    "target_failure_mode": "Extraction Error",
+    "relevant_tickers": [
+      "AMD"
+    ],
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": "ST03",
+    "question": "For TSM, combine Item 1 product/customer concentration context with Item 7 revenue commentary to explain which demand driver contributed most to year-over-year change.",
+    "difficulty": "medium",
+    "expected": "TBD",
+    "stress_type": "Missing Link",
+    "target_failure_mode": "Synthesis Failure",
+    "relevant_tickers": [
+      "TSM"
+    ],
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": "ST04",
+    "question": "For ANET, reconcile Item 1 market positioning claims with Item 7 discussion of operating expenses: which strategic focus appears to be driving opex intensity, and how do both sections support that?",
+    "difficulty": "hard",
+    "expected": "TBD",
+    "stress_type": "Missing Link",
+    "target_failure_mode": "Retrieval Gap",
+    "relevant_tickers": [
+      "ANET"
+    ],
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": "ST05",
+    "question": "For MU, link Item 1 industry cycle description to Item 7 inventory/pricing commentary and conclude whether management is signaling early-cycle recovery, mid-cycle expansion, or late-cycle normalization.",
+    "difficulty": "hard",
+    "expected": "TBD",
+    "stress_type": "Missing Link",
+    "target_failure_mode": "Synthesis Failure",
+    "relevant_tickers": [
+      "MU"
+    ],
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": "ST06",
+    "question": "Compare AVGO vs NVDA on gross margin trend and the primary stated driver; ensure each ticker has one quote-level evidence point and do not answer if one ticker lacks direct support.",
+    "difficulty": "hard",
+    "expected": "TBD",
+    "stress_type": "Multi-Ticker Trap",
+    "target_failure_mode": "Retrieval Gap",
+    "relevant_tickers": [
+      "AVGO",
+      "NVDA"
+    ],
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": "ST07",
+    "question": "Compare AMD and TSM on capex intensity using whichever section contains explicit capex rationale; if one ticker's rationale appears only in tabular MD&A context, surface it explicitly before concluding.",
+    "difficulty": "medium",
+    "expected": "TBD",
+    "stress_type": "Multi-Ticker Trap",
+    "target_failure_mode": "Extraction Error",
+    "relevant_tickers": [
+      "AMD",
+      "TSM"
+    ],
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": "ST08",
+    "question": "Compare ANET and AVGO on customer concentration risk language vs realized revenue impact; provide a side-by-side conclusion only if both tickers have both risk and performance evidence.",
+    "difficulty": "hard",
+    "expected": "TBD",
+    "stress_type": "Multi-Ticker Trap",
+    "target_failure_mode": "Retrieval Gap",
+    "relevant_tickers": [
+      "ANET",
+      "AVGO"
+    ],
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": "ST09",
+    "question": "Compare MU and NVDA on inventory-related commentary and margin implications; determine whether each company frames inventory as a constraint or a buffer, with citation-backed contrast.",
+    "difficulty": "hard",
+    "expected": "TBD",
+    "stress_type": "Multi-Ticker Trap",
+    "target_failure_mode": "Synthesis Failure",
+    "relevant_tickers": [
+      "MU",
+      "NVDA"
+    ],
+    "preferred_doc_type": "filing"
+  },
+  {
+    "id": "ST10",
+    "question": "Compare TSM and AMD on the strongest management explanation for operating margin movement; if one explanation is buried in narrative around a table, extract it and include it explicitly.",
+    "difficulty": "medium",
+    "expected": "TBD",
+    "stress_type": "Multi-Ticker Trap",
+    "target_failure_mode": "Extraction Error",
+    "relevant_tickers": [
+      "TSM",
+      "AMD"
+    ],
+    "preferred_doc_type": "filing"
   }
 ]
