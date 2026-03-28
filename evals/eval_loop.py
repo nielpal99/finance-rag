@@ -33,7 +33,7 @@ from prompt_builder import build_prompt
 
 MODEL               = "claude-sonnet-4-20250514"
 TOP_K               = 8
-ALL_TICKERS         = ["NVDA", "AMD", "AVGO", "TSM", "ANET", "MU"]
+ALL_TICKERS         = ["NVDA", "AMD", "AVGO", "TSM", "ANET", "MU", "CRWV"]
 EVAL_SET_PATH       = Path(__file__).parent / "eval_set.json"
 BRAINTRUST_PROJECT  = "finance-rag"
 LOGS_DIR            = Path(__file__).parent.parent / "logs"

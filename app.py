@@ -26,7 +26,7 @@ from query_router import route_query, detect_ticker, query_snowflake
 
 MODEL      = "claude-sonnet-4-20250514"
 MAX_TOKENS = 1024
-ALL_TICKERS = ["NVDA", "AMD", "AVGO", "TSM", "ANET", "MU"]
+ALL_TICKERS = ["NVDA", "AMD", "AVGO", "TSM", "ANET", "MU", "CRWV"]
 TOP_K       = 8
 
 _DOC_TYPE_MAP = {
@@ -110,7 +110,7 @@ st.set_page_config(
 )
 
 st.title("AI Infrastructure Research")
-st.caption("Grounded answers from SEC filings and earnings transcripts — NVDA · AMD · AVGO · TSM · ANET · MU")
+st.caption("Grounded answers from SEC filings and earnings transcripts — NVDA · AMD · AVGO · TSM · ANET · MU · CRWV")
 
 # ── session state ─────────────────────────────────────────────────────────────
 

@@ -29,6 +29,7 @@ TICKER_CIK = {
     "TSM":  "0001046179",
     "ANET": "0001596532",
     "MU":   "0000723125",
+    "CRWV": "0001769628",
 }
 
 # 10-K section header pattern (matches "Item 1.", "ITEM 1A.", etc.)
@@ -67,7 +68,7 @@ def get_latest_10k_meta(ticker: str) -> dict:
 
     Accepts 10-K (domestic) and 20-F (foreign private issuers, e.g. TSM).
     """
-    ANNUAL_FORMS = {"10-K", "20-F"}
+    ANNUAL_FORMS = {"10-K", "20-F", "S-1", "S-1/A"}
 
     cik = TICKER_CIK[ticker.upper()]
     url = f"{EDGAR_BASE}/submissions/CIK{cik}.json"

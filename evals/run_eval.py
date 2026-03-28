@@ -33,7 +33,7 @@ from prompt_builder import build_prompt
 
 MODEL               = "claude-sonnet-4-20250514"
 TOP_K               = 8
-ALL_TICKERS         = ["NVDA", "AMD", "AVGO", "TSM", "ANET", "MU"]
+ALL_TICKERS         = ["NVDA", "AMD", "AVGO", "TSM", "ANET", "MU", "CRWV"]
 EVAL_SET_PATH       = Path(__file__).parent / "eval_set.json"
 BRAINTRUST_PROJECT  = "finance-rag"
 
@@ -173,7 +173,8 @@ def main():
         generated, full_prompt = _run_generation(q["question"], ret["results"])
 
         # 3 — judge
-        gen_score = round(factual_coverage(output=generated, expected=q["expected_answer"]), 4)
+        expected  = q.get("expected_answer") or q.get("expected", "")
+        gen_score = round(factual_coverage(output=generated, expected=expected), 4)
 
         is_pass = (
             ret["retrieval_score"] >= RETRIEVAL_PASS_THRESHOLD and
@@ -192,7 +193,7 @@ def main():
         experiment.log(
             input={"question": q["question"]},
             output=generated,
-            expected=q["expected_answer"],
+            expected=expected,
             scores={
                 "factual_coverage": gen_score,
                 "retrieval_score":  ret["retrieval_score"],

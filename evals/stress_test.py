@@ -33,7 +33,7 @@ from prompt_builder import build_prompt
 # ── config ────────────────────────────────────────────────────────────────────
 
 MODEL           = "claude-sonnet-4-20250514"
-ALL_TICKERS     = ["NVDA", "AMD", "AVGO", "TSM", "ANET", "MU"]
+ALL_TICKERS     = ["NVDA", "AMD", "AVGO", "TSM", "ANET", "MU", "CRWV"]
 INDEX_NAME      = "finance-rag"
 EMBED_DIM       = 1024          # bge-large-en-v1.5
 TOP_K           = 8

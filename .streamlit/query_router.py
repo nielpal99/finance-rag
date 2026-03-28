@@ -21,8 +21,10 @@ COMPANY_ALIASES = {
     "arista networks": "ANET",
     "broadcom": "AVGO",
     "micron": "MU",
+    "coreweave": "CRWV",
+    "crwv": "CRWV",
 }
-TICKERS = ["NVDA", "AMD", "TSM", "ANET", "AVGO", "MU"]
+TICKERS = ["NVDA", "AMD", "TSM", "ANET", "AVGO", "MU", "CRWV"]
 
 def detect_ticker(query: str) -> str | None:
     q_lower = query.lower()

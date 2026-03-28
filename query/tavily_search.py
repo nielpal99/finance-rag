@@ -9,7 +9,7 @@ except ImportError:
     def get_secret(key):
         return os.environ.get(key, "")
 
-TICKERS = ["NVDA", "AMD", "TSM", "ANET", "AVGO", "MU"]
+TICKERS = ["NVDA", "AMD", "TSM", "ANET", "AVGO", "MU", "CRWV"]
 COMPANY_NAMES = {
     "NVDA": "NVIDIA",
     "AMD": "AMD Advanced Micro Devices",
@@ -17,6 +17,7 @@ COMPANY_NAMES = {
     "ANET": "Arista Networks",
     "AVGO": "Broadcom",
     "MU": "Micron Technology",
+    "CRWV": "CoreWeave",
 }
 
 def get_client():
