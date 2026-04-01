@@ -125,7 +125,7 @@ st.set_page_config(
 )
 
 st.title("AI Infrastructure Research")
-st.caption("Grounded answers from SEC filings and earnings transcripts — 6 core companies + structured metrics for 47 AI infrastructure companies")
+st.caption("Grounded answers from SEC filings and earnings transcripts (7 core companies) + structured metrics for 47 AI infrastructure companies")
 
 # ── session state ─────────────────────────────────────────────────────────────
 

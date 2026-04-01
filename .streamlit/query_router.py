@@ -134,8 +134,13 @@ def is_metric_question(query: str) -> bool:
     q = query.lower()
     return any(kw in q for kw in METRIC_KEYWORDS)
 
+PINECONE_TICKERS = {"NVDA", "AMD", "TSM", "ANET", "AVGO", "MU"}
+
 def route_query(query: str) -> str:
-    if is_metric_question(query) and detect_ticker(query):
+    ticker = detect_ticker(query)
+    if ticker and ticker not in PINECONE_TICKERS:
+        return "snowflake"
+    if is_metric_question(query) and ticker:
         return "snowflake"
     return "pinecone"
 
