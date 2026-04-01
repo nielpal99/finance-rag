@@ -10,5 +10,5 @@ firecrawl-py
 python-dotenv
 snowflake-connector-python
 tavily-python
-llama-index-core==0.12.0
+llama-index-core>=0.12.0
 llama-index-llms-anthropic>=0.3.0
