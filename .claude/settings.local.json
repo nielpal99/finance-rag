@@ -20,7 +20,20 @@
       "Bash(tee logs/eval_braintrust_v1.log)",
       "Bash(tee logs/eval_hard_v2.log)",
       "Bash(python3 -c \":*)",
-      "Bash(pip3 show:*)"
+      "Bash(pip3 show:*)",
+      "Bash(curl -s -H \"User-Agent: nielpal niel@example.com\" \"https://data.sec.gov/submissions/CIK0001824168.json\")",
+      "Bash(python3 -c \"import json,sys; d=json.load\\(sys.stdin\\); print\\(d[''''name''''], ''''|'''', d[''''tickers'''']\\)\")",
+      "Bash(curl -s -H \"User-Agent: nielpal niel@example.com\" \"https://data.sec.gov/submissions/CIK0001764046.json\")",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(dbt:*)",
+      "Bash(/Users/nielpal/Library/Python/3.9/bin/dbt --version)",
+      "Bash(echo \"1:*)",
+      "Bash(/Users/nielpal/Library/Python/3.9/bin/dbt init:*)",
+      "Bash(/Users/nielpal/Library/Python/3.9/bin/dbt debug:*)",
+      "Bash(/Users/nielpal/Library/Python/3.9/bin/dbt run:*)",
+      "Bash(/Users/nielpal/Library/Python/3.9/bin/dbt test:*)"
     ]
   }
 }

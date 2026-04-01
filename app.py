@@ -125,7 +125,7 @@ st.set_page_config(
 )
 
 st.title("AI Infrastructure Research")
-st.caption("Grounded answers from SEC filings and earnings transcripts — NVDA · AMD · AVGO · TSM · ANET · MU · CRWV")
+st.caption("Grounded answers from SEC filings and earnings transcripts — 6 core companies + structured metrics for 47 AI infrastructure companies")
 
 # ── session state ─────────────────────────────────────────────────────────────
 
